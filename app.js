@@ -12,6 +12,9 @@ var path = require('path');
 
 var app = express();
 
+//basic password
+app.use(express.basicAuth('mtb', 'mtb'));
+
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
@@ -28,6 +31,7 @@ app.use( express.bodyParser());
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
+
 
 app.get('/', routes.index);
 app.get('/users', user.list);
