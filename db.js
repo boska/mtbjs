@@ -2,8 +2,12 @@ var mongoose = require( 'mongoose' );
 var Schema   = mongoose.Schema;
  
 var Post = new Schema({
-    user_id    : String,
-    content    : String,
+    user_id     : String,
+    content     : String,
+    content2    : String,
+    content3    : String,
+    content4    : String,
+
     updated_at : Date
 });
 

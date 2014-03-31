@@ -13,8 +13,19 @@ exports.index = function ( req, res ){
 exports.create = function ( req, res ){
   new Post({
     content    : req.body.content,
+    content2    : req.body.content2,
+    content3    : req.body.content3,
+    content4    : req.body.content4,
     updated_at : Date.now()
   }).save( function( err, todo, count ){
     res.redirect( '/' );
+  });
+};
+
+exports.destroy = function ( req, res ){
+  Post.findById( req.params.id, function ( err, post ){
+    post.remove( function ( err, post ){
+      res.redirect( '/' );
+    });
   });
 };
